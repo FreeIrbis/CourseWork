@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="window" prefHeight="416.0" prefWidth="584.0" styleClass="window" stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.LoginController">
+    <children>
+        <ImageView fitHeight="88.0" fitWidth="168.0" layoutX="209.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/logo.png" />
+            </image>
+        </ImageView>
+        <TextField fx:id="login" layoutX="160.0" layoutY="136.0" prefHeight="38.0" prefWidth="265.0" promptText="Введите логин">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="password" layoutX="160.0" layoutY="206.0" prefHeight="38.0" prefWidth="265.0" promptText="Введите пароль">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </PasswordField>
+        <Button fx:id="loginButton" layoutX="222.0" layoutY="287.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="38.0" prefWidth="140.0" text="Войти">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <HBox id="hBox1" alignment="CENTER" prefHeight="25.0" prefWidth="418.0" AnchorPane.bottomAnchor="156.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="41.0">
+            <children>
+                <Label id="label2" fx:id="errorMessage" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

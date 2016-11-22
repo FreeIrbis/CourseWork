@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="328.0" prefWidth="488.0" styleClass="window" stylesheets="@../../../../target/classes/styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.ReportController">
+   <children>
+      <ComboBox fx:id="comboReport" layoutX="40.0" layoutY="70.0" prefHeight="25.0" prefWidth="184.0" promptText="выберите отчёт" />
+      <Button fx:id="btnGetReport" layoutX="274.0" layoutY="70.0" mnemonicParsing="false" onAction="#getReport" text="Получить" />
+      <Label layoutX="400.0" layoutY="6.0" text="Меню отчётов" />
+   </children>
+</AnchorPane>
