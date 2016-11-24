@@ -7,24 +7,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="window" prefHeight="416.0" prefWidth="584.0" styleClass="window" stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.LoginController">
+<AnchorPane id="window" prefHeight="416.0" prefWidth="310.0" styleClass="window" stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.LoginController">
     <children>
-        <ImageView fitHeight="88.0" fitWidth="168.0" layoutX="209.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../image/logo.png" />
-            </image>
-        </ImageView>
-        <TextField fx:id="login" layoutX="160.0" layoutY="136.0" prefHeight="38.0" prefWidth="265.0" promptText="Введите логин">
+        <TextField fx:id="login" layoutX="23.0" layoutY="114.0" prefHeight="38.0" prefWidth="265.0" promptText="Введите логин">
             <font>
                 <Font size="18.0" />
             </font>
         </TextField>
-        <PasswordField fx:id="password" layoutX="160.0" layoutY="206.0" prefHeight="38.0" prefWidth="265.0" promptText="Введите пароль">
+        <PasswordField fx:id="password" layoutX="23.0" layoutY="184.0" prefHeight="38.0" prefWidth="265.0" promptText="Введите пароль">
             <font>
                 <Font size="18.0" />
             </font>
         </PasswordField>
-        <Button fx:id="loginButton" layoutX="222.0" layoutY="287.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="38.0" prefWidth="140.0" text="Войти">
+        <Button fx:id="loginButton" layoutX="70.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="38.0" prefWidth="172.0" text="Войти">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -37,5 +32,13 @@
                 <Label id="label2" fx:id="errorMessage" />
             </children>
         </HBox>
+      <Button fx:id="loginButton1" layoutX="69.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="38.0" prefWidth="172.0" text="Зарегистрироваться">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

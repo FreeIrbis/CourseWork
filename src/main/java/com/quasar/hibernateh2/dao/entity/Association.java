@@ -37,15 +37,15 @@ public class Association extends Model implements Serializable {
         this.user = user;
     }
     
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Resource.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = ProgResource.class)
     @JoinColumn(name = "resource")
-    private Resource resource;
+    private ProgResource resource;
 
-    public Resource getRecourse() {
+    public ProgResource getRecourse() {
         return resource;
     }
 
-    public void setRecourse(Resource recourse) {
+    public void setRecourse(ProgResource recourse) {
         this.resource = recourse;
     }
     

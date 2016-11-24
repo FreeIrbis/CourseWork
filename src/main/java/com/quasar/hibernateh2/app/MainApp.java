@@ -76,7 +76,7 @@ public class MainApp extends Application {
 
     private void gotoLogin() {
         try {
-            int xLogin = 600;
+            int xLogin = 310;
             int yLogin = 420;
             LoginController login = (LoginController) replaceSceneContent("/fxml/Login.fxml", xLogin, yLogin);
             login.setApp(this);
@@ -110,7 +110,7 @@ public class MainApp extends Application {
 
     private void gotoGeneral() {
         try {
-            GeneralController login = (GeneralController) replaceSceneContent("/fxml/General.fxml", 900, 700);
+            GeneralController login = (GeneralController) replaceSceneContent("/fxml/General.fxml", 424, 429);
             login.setApp(this);
             Scene scene = stage.getScene();
             scene.getStylesheets().add("/styles/General.css");

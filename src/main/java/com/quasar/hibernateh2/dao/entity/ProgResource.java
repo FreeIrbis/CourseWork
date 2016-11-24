@@ -17,8 +17,8 @@ import javax.persistence.Table;
  * @author Ghost
  */
 @Entity
-@Table(name = "recource")
-public class Resource extends Model implements Serializable {
+@Table(name = "resource")
+public class ProgResource extends Model implements Serializable {
     
     @Column(name = "nameRes")
     private String nameRes;
@@ -54,12 +54,17 @@ public class Resource extends Model implements Serializable {
         this.urlRes = urlRes;
     }
        
-    public Resource() {
+    public ProgResource() {
     }
     
-    public Resource(String nameRes,String urlRes) {
+    public ProgResource(String nameRes,String urlRes) {
         this.nameRes=nameRes;
         this.urlRes=urlRes;
     }
+     @Override
+    public String toString() {
+        return getNameRes();
+    }
+    
 }
 

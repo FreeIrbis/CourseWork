@@ -15,14 +15,14 @@ import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
     
-    private static final String NAME_DB = "./test.mv.db";
+    private static final String NAME_DB = "./test";
 
     private static SessionFactory sessionFactory;
     private static ServiceRegistry serviceRegistry;
 
     static {
         try {
-            boolean initFromXML = false;
+            boolean initFromXML = true;
             boolean dbExists = new File(NAME_DB).exists();
 
             Configuration configuration = new Configuration();
@@ -91,7 +91,7 @@ public class HibernateUtil {
         configuration
             .addProperties(prop)
             .addAnnotatedClass(Account.class)
-            .addAnnotatedClass(Resource.class)
+            .addAnnotatedClass(ProgResource.class)
             .addAnnotatedClass(Association.class)
             .addAnnotatedClass(User.class);
 

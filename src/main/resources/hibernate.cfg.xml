@@ -14,7 +14,7 @@
         <!-- SQL dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
         <!-- Drop and re-create update the database schema on startup -->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
       
         <!-- JDBC connection pool (use the built-in) -->
@@ -27,7 +27,7 @@
     
 <!--        <mapping class="com.quasar.hibernateh2.dao.entity.Model" />-->
         <mapping class="com.quasar.hibernateh2.dao.entity.Account" />
-        <mapping class="com.quasar.hibernateh2.dao.entity.Resource" />
+        <mapping class="com.quasar.hibernateh2.dao.entity.ProgResource" />
         <mapping class="com.quasar.hibernateh2.dao.entity.Association" />
         <mapping class="com.quasar.hibernateh2.dao.entity.User" />
     </session-factory>

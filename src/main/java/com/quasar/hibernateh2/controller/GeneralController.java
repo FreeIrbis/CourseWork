@@ -1,49 +1,37 @@
 package com.quasar.hibernateh2.controller;
 
-import static com.quasar.hibernateh2.app.OneCheckBox.chekedOneCheckBox;
-import static com.quasar.hibernateh2.app.OneCheckBox.selectOneCheckBox;
 import com.quasar.hibernateh2.dao.Factory;
-
+import com.quasar.hibernateh2.dao.entity.Account;
+import com.quasar.hibernateh2.dao.entity.ProgResource;
+import com.sun.javafx.scene.control.skin.LabeledText;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-//import javafx.scene.control.Alert;
-//import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-//import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.hibernate.annotations.common.util.impl.Log;
 
 /**
  * FXML Controller class
@@ -52,7 +40,6 @@ import javafx.stage.Stage;
  */
 public class GeneralController extends AbstractController implements Initializable {
 
-   
     private static final Toolkit kit = Toolkit.getDefaultToolkit();
     private static final Dimension screenSize = kit.getScreenSize();
 
@@ -87,13 +74,27 @@ public class GeneralController extends AbstractController implements Initializab
         stage.show();
     }
 
-    
-    
+    /*Описание графических элементов*/
+    @FXML
+    ListView<ProgResource> ListView = new <ProgResource>ListView();
 
+    @FXML
+    MenuBar MenuBar = new MenuBar();
+    List<ProgResource> listResources = null;
+    ProgResource resource;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        try {
+            listResources = Factory.getInstance().getResourceDAO().getAllResources();
+            ListView.setItems(FXCollections.observableArrayList(listResources));
+        } catch (SQLException ex) {
+            Logger.getLogger(GeneralController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void ListClicked()throws SQLException{
+        resource = ListView.getFocusModel().getFocusedItem();
+        listResources.add(resource);
+        ListView.setItems(FXCollections.observableArrayList(listResources));
     }
 
-    
 }

@@ -21,7 +21,7 @@ public class Factory {
         return instance;
     }
     
-    public static AccountDAO getAccountDAO() {
+    public AccountDAO getAccountDAO() {
         if (AccountDAO == null) {
             AccountDAO = new AccountDAOImpl();
         }
