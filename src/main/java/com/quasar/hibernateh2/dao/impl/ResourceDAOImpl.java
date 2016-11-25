@@ -12,6 +12,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Property;
 
 public class ResourceDAOImpl implements ResourceDAO {
@@ -73,10 +74,11 @@ public class ResourceDAOImpl implements ResourceDAO {
         Session session = null;
         ProgResource resource = null;
         try {
-            DetachedCriteria maxId = DetachedCriteria.forClass(ProgResource.class);
+            DetachedCriteria maxId = DetachedCriteria.forClass(ProgResource.class)
+    .setProjection( Projections.max("id") );
             session = HibernateUtil.getSessionFactory().openSession();
             resource = (ProgResource) session.createCriteria(ProgResource.class).
-                    add( Property.forName("id").eq(maxId));
+                    add( Property.forName("id").eq(maxId)).list().get(0);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
         } finally {

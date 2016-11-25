@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Property;
 
 /**
@@ -75,10 +76,11 @@ public class AccountDAOImpl implements AccountDAO {
         Session session = null;
         Account account = null;
         try {
-            DetachedCriteria maxId = DetachedCriteria.forClass(Account.class);
+            DetachedCriteria maxId = DetachedCriteria.forClass(Account.class)
+    .setProjection( Projections.max("id") );
             session = HibernateUtil.getSessionFactory().openSession();
             account = (Account) session.createCriteria(Account.class).
-                    add( Property.forName("id").eq(maxId));
+                    add( Property.forName("id").eq(maxId)).list().get(0);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
         } finally {
