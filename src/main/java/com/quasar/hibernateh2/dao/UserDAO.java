@@ -22,4 +22,6 @@ public interface UserDAO {
     
     public User getUserByTempId(Long id) throws SQLException;
     
+    public User getUserBySearch(String Login, String Pass) throws SQLException;
+    
 }

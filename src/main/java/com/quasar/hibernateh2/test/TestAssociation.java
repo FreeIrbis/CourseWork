@@ -40,7 +40,6 @@ public class TestAssociation {
         } catch (SQLException ex) {
             Logger.getLogger(TestAssociation.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ;
     }
     
 }
