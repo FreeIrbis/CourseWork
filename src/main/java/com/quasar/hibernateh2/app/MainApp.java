@@ -176,7 +176,8 @@ public class MainApp extends Application {
     }
 
     public boolean userLogging(String userId, String password) {
-        if (Authenticator.validate(userId, password)) {
+        Authenticator Aut = new Authenticator();
+        if (Aut.validate(userId, password)) {
             // loggedUser = User.of(userId);
             gotoGeneral();
             return true;

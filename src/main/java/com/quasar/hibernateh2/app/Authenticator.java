@@ -7,19 +7,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Authenticator {
-    public static User user;
+    public User user = new User();
+    
     private static final Map<String, String> USERS = new HashMap<String, String>();
     static {
         USERS.put("demo", "demo");
     }
-    public static boolean validate(String login, String password) {
+    public boolean validate(String login, String password) {
+        user = null;
         try {
-            user = Factory.getInstance().getUserDAO().getUserByTempId(1L);
-            boolean loginB = login != null ? login.equals(user.getLoginUser()) : false;
-            boolean passB = password != null ? password.equals(user.getPassUser()) : false;
-            return loginB && passB;
+            user = Factory.getInstance().getUserDAO().getUserBySearch(login, password);
+           if (user!=null){
+           return true;
+           }
         } catch (SQLException ex) {
             return false;
         }
+        return false;
+    }
+    Authenticator(){
     }
 }
