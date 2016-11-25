@@ -2,7 +2,7 @@ package com.quasar.hibernateh2.app;
 
 import com.quasar.hibernateh2.controller.GeneralController;
 import com.quasar.hibernateh2.controller.LoginController;
-import com.quasar.hibernateh2.controller.SettingsController;
+import com.quasar.hibernateh2.controller.InfoController;
 import com.quasar.hibernateh2.dao.hiber_util.HibernateUtil;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -95,7 +95,7 @@ public class MainApp extends Application {
         try {
             int xLogin = 600;
             int yLogin = 420;
-            SettingsController login = (SettingsController) replaceSceneContent("/fxml/Settings.fxml", xLogin, yLogin);
+            InfoController login = (InfoController) replaceSceneContent("/fxml/Settings.fxml", xLogin, yLogin);
             login.setApp(this);
             Scene scene = stage.getScene();
             scene.getStylesheets().add("/styles/Settings.css");

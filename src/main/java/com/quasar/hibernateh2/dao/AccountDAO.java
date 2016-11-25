@@ -19,5 +19,7 @@ public interface AccountDAO {
     public List<Account> getAllAccounts() throws SQLException;
 
     public void deleteAccount(Account account) throws SQLException;
+
+    public Account getAccountByMaxId() throws SQLException;
     
 }

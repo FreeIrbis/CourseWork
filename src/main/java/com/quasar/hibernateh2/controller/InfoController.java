@@ -11,30 +11,30 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 //import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 /**
  *
  * @author Irbis
  */
-public class SettingsController extends AbstractController implements Initializable {
+public class InfoController extends AbstractController implements Initializable {
 
     @FXML
-    TextField loginUser;
+    TextField NameResource;
     @FXML
-    TextField passwordUser;
+    TextField Login;
     @FXML
-    TextField loginDB;
+    PasswordField Password;
     @FXML
     TextField passwordDB;
     @FXML
-    TextField linkDB;
+    TextField UrlResource;
     @FXML
-    TextField nameDB;
+    TextArea Other;
     @FXML
     Button userButton;
-    @FXML
-    Button dbButton;
 
     User user = new User();
 
@@ -44,15 +44,15 @@ public class SettingsController extends AbstractController implements Initializa
         try {
             user = Factory.getInstance().getUserDAO().getUserById(1L);
         } catch (SQLException ex) {
-            Logger.getLogger(SettingsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InfoController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        loginUser.setText(user.getLoginUser());
-        passwordUser.setText(user.getPassUser());
+        Login.setText(user.getLoginUser());
+        Password.setText(user.getPassUser());
     }
 
     public void updateUser() throws SQLException {
-        user.setLoginUser(loginUser.getText().trim());
-        user.setPassUser(passwordUser.getText().trim());
+        user.setLoginUser(Login.getText().trim());
+        user.setPassUser(Password.getText().trim());
         Factory.getInstance().getUserDAO().updateUser(user);
 //        Alert alert = new Alert(Alert.AlertType.INFORMATION);
 //        alert.setTitle("Оповещенпие");

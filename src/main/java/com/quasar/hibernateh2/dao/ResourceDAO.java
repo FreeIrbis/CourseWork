@@ -20,4 +20,6 @@ public interface ResourceDAO {
     public List<ProgResource> getAllResources() throws SQLException;
 
     public void deleteResource(ProgResource resource) throws SQLException;
+    
+    public ProgResource getResourceByMaxId() throws SQLException;
 }

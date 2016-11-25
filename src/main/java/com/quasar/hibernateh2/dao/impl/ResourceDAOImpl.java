@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Property;
 
 public class ResourceDAOImpl implements ResourceDAO {
     
@@ -56,6 +58,25 @@ public class ResourceDAOImpl implements ResourceDAO {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             resource = (ProgResource) session.get(ProgResource.class, id);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return resource;
+    }
+    
+    @Override
+    public ProgResource getResourceByMaxId() throws SQLException {
+        Session session = null;
+        ProgResource resource = null;
+        try {
+            DetachedCriteria maxId = DetachedCriteria.forClass(ProgResource.class);
+            session = HibernateUtil.getSessionFactory().openSession();
+            resource = (ProgResource) session.createCriteria(ProgResource.class).
+                    add( Property.forName("id").eq(maxId));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
         } finally {

@@ -9,6 +9,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Property;
 
 /**
  *
@@ -67,6 +69,26 @@ public class AccountDAOImpl implements AccountDAO {
         return account;
     }
 
+
+    @Override
+    public Account getAccountByMaxId() throws SQLException {
+        Session session = null;
+        Account account = null;
+        try {
+            DetachedCriteria maxId = DetachedCriteria.forClass(Account.class);
+            session = HibernateUtil.getSessionFactory().openSession();
+            account = (Account) session.createCriteria(Account.class).
+                    add( Property.forName("id").eq(maxId));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return account;
+    }
+    
     @Override
     public List<Account> getAllAccounts() throws SQLException {
         Session session = null;

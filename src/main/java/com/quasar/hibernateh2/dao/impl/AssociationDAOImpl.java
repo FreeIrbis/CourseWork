@@ -2,6 +2,7 @@ package com.quasar.hibernateh2.dao.impl;
 
 import com.quasar.hibernateh2.dao.AssociationDAO;
 import com.quasar.hibernateh2.dao.entity.Association;
+import com.quasar.hibernateh2.dao.entity.User;
 import com.quasar.hibernateh2.dao.hiber_util.HibernateUtil;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Expression;
 
 /**
  *
@@ -84,6 +86,24 @@ public class AssociationDAOImpl implements AssociationDAO {
         return association; 
     }
 
+    public List<Association> getAllAssociationsByUser(User user) throws SQLException {
+        Session session = null;
+        List<Association> association = new ArrayList<>();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            association = session.createCriteria(Association.class).
+                    add( Expression.like("user", user) )
+                    .list();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return association; 
+    }
+    
     @Override
     public void deleteAssociation(Association association) throws SQLException {
     Session session = null;

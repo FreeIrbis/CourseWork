@@ -81,7 +81,7 @@ public class GeneralController extends AbstractController implements Initializab
     @FXML
     MenuBar MenuBar = new MenuBar();
     List<ProgResource> listResources = null;
-    ProgResource resource;
+    public ProgResource resource;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -91,10 +91,34 @@ public class GeneralController extends AbstractController implements Initializab
             Logger.getLogger(GeneralController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void ListClicked()throws SQLException{
+    public void ListClicked()throws SQLException, IOException{
         resource = ListView.getFocusModel().getFocusedItem();
-        listResources.add(resource);
-        ListView.setItems(FXCollections.observableArrayList(listResources));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Информация");
+        stage.setScene(new Scene(root1));
+        Scene scene = stage.getScene();
+        scene.getStylesheets().add("/styles/Login.css");
+        stage.setResizable(false);
+        // установка иконки
+        Image ix = new Image("/icon/lock.png");
+        stage.getIcons().add(ix);
+        stage.centerOnScreen();
+
+        lx = screenSize.width;
+        ly = screenSize.height;
+
+        double x = lx / 2 - 600 / 2;
+        double y = ly / 2 - 400 / 2;
+
+        stage.setX(x);
+        stage.setY(y);
+
+        stage.show();
+        /*listResources.add(resource);
+        ListView.setItems(FXCollections.observableArrayList(listResources));*/
     }
 
 }
