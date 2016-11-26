@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.Property;
 
 /**
  *
@@ -72,10 +73,10 @@ public class AssociationDAOImpl implements AssociationDAO {
     @Override
     public List<Association> getAllAssociations() throws SQLException {
         Session session = null;
-        List<Association> association = new ArrayList<>();
+        List<Association> associations = new ArrayList<>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            association = session.createCriteria(Association.class).list();
+            associations = session.createCriteria(Association.class).list();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
         } finally {
@@ -83,17 +84,17 @@ public class AssociationDAOImpl implements AssociationDAO {
                 session.close();
             }
         }
-        return association; 
+        return associations; 
     }
 
+     @Override
     public List<Association> getAllAssociationsByUser(User user) throws SQLException {
         Session session = null;
-        List<Association> association = new ArrayList<>();
+        List<Association> associations = new ArrayList<>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            association = session.createCriteria(Association.class).
-                    add( Expression.like("user", user) )
-                    .list();
+            associations = session.createCriteria(Association.class).
+                    add( Property.forName("user").eq(user)).list();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
         } finally {
@@ -101,7 +102,7 @@ public class AssociationDAOImpl implements AssociationDAO {
                 session.close();
             }
         }
-        return association; 
+        return associations; 
     }
     
     @Override
@@ -120,4 +121,6 @@ public class AssociationDAOImpl implements AssociationDAO {
             }
         }
     }
+
+    
 }

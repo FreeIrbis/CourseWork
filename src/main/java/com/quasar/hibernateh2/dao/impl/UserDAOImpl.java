@@ -74,7 +74,7 @@ public class UserDAOImpl implements UserDAO {
         User user = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            List<User> users = session.createCriteria(User.class).add(Restrictions.eq("tempId", 1L)).list();
+            List<User> users = session.createCriteria(User.class).add(Restrictions.eq("tempId", id)).list();
             user = users.get(0);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);

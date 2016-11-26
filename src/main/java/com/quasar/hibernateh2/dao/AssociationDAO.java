@@ -1,6 +1,7 @@
 package com.quasar.hibernateh2.dao;
 
 import com.quasar.hibernateh2.dao.entity.Association;
+import com.quasar.hibernateh2.dao.entity.User;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface AssociationDAO {
     public List<Association> getAllAssociations() throws SQLException;
 
     public void deleteAssociation(Association association) throws SQLException;
+    
+    public List<Association> getAllAssociationsByUser(User user) throws SQLException;
 }

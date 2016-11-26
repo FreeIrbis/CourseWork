@@ -1,12 +1,13 @@
 package com.quasar.hibernateh2.controller;
 
+import com.quasar.hibernateh2.app.MainApp;
+import com.quasar.hibernateh2.controller.LoginController;
 import com.quasar.hibernateh2.dao.Factory;
-import com.quasar.hibernateh2.dao.entity.Account;
+import com.quasar.hibernateh2.dao.entity.Association;
 import com.quasar.hibernateh2.dao.entity.ProgResource;
-import com.sun.javafx.scene.control.skin.LabeledText;
+import com.quasar.hibernateh2.dao.entity.User;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -14,24 +15,19 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseButton;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.hibernate.annotations.common.util.impl.Log;
 
 /**
  * FXML Controller class
@@ -76,23 +72,25 @@ public class GeneralController extends AbstractController implements Initializab
 
     /*Описание графических элементов*/
     @FXML
-    ListView<ProgResource> ListView = new <ProgResource>ListView();
+    ListView<Association> ListView = new <Association>ListView();
 
     @FXML
     MenuBar MenuBar = new MenuBar();
+    List<Association> listAssociations = null;
     List<ProgResource> listResources = null;
-    public ProgResource resource;
+    public Association association;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            listResources = Factory.getInstance().getResourceDAO().getAllResources();
-            ListView.setItems(FXCollections.observableArrayList(listResources));
+            User user = Factory.getInstance().getUserDAO().getUserByTempId(2L);
+            listAssociations =Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(user);
+            ListView.setItems(FXCollections.observableArrayList(listAssociations));
         } catch (SQLException ex) {
             Logger.getLogger(GeneralController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void ListClicked()throws SQLException, IOException{
-        resource = ListView.getFocusModel().getFocusedItem();
+        association = ListView.getFocusModel().getFocusedItem();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

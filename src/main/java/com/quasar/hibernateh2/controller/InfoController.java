@@ -42,7 +42,7 @@ public class InfoController extends AbstractController implements Initializable 
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            user = Factory.getInstance().getUserDAO().getUserById(1L);
+            user = Factory.getInstance().getUserDAO().getUserByTempId(2L);
         } catch (SQLException ex) {
             Logger.getLogger(InfoController.class.getName()).log(Level.SEVERE, null, ex);
         }

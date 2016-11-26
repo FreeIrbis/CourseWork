@@ -3,6 +3,7 @@ package com.quasar.hibernateh2.app;
 import com.quasar.hibernateh2.controller.GeneralController;
 import com.quasar.hibernateh2.controller.LoginController;
 import com.quasar.hibernateh2.controller.InfoController;
+import com.quasar.hibernateh2.dao.entity.User;
 import com.quasar.hibernateh2.dao.hiber_util.HibernateUtil;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -174,9 +175,12 @@ public class MainApp extends Application {
         
         return (Initializable) loader.getController();
     }
-
+    static Authenticator Aut = new Authenticator();
+    
+    public static User getUserOut(){
+    return Aut.user;}
     public boolean userLogging(String userId, String password) {
-        Authenticator Aut = new Authenticator();
+        
         if (Aut.validate(userId, password)) {
             // loggedUser = User.of(userId);
             gotoGeneral();

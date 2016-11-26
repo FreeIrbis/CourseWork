@@ -74,5 +74,10 @@ public class Association extends Model implements Serializable {
      
     public Association (){
     }
+    
+    @Override
+    public String toString() {
+        return this.getRecourse().getNameRes();
+    }
 }
 
