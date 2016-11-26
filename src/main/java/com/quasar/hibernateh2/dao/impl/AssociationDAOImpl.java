@@ -106,6 +106,24 @@ public class AssociationDAOImpl implements AssociationDAO {
     }
     
     @Override
+    public Association getAssociationByUser(User user) throws SQLException {
+        Session session = null;
+        Association association = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            association = (Association) session.createCriteria(Association.class).
+                    add( Property.forName("user").eq(user)).list().get(0);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return association; 
+    }
+    
+    @Override
     public void deleteAssociation(Association association) throws SQLException {
     Session session = null;
         try {

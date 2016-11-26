@@ -22,4 +22,6 @@ public interface AssociationDAO {
     public void deleteAssociation(Association association) throws SQLException;
     
     public List<Association> getAllAssociationsByUser(User user) throws SQLException;
+    
+    public Association getAssociationByUser(User user) throws SQLException;
 }

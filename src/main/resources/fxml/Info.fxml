@@ -15,10 +15,11 @@
       <TextField fx:id="UrlResource" layoutX="27.0" layoutY="95.0" prefHeight="25.0" prefWidth="286.0" />
       <TextField fx:id="NameResource" layoutX="29.0" layoutY="42.0" prefHeight="25.0" prefWidth="286.0" />
       <TextField fx:id="Login" layoutX="27.0" layoutY="144.0" prefHeight="25.0" prefWidth="286.0" />
-      <PasswordField fx:id="Password" layoutX="27.0" layoutY="199.0" prefHeight="25.0" prefWidth="286.0" />
+      <PasswordField fx:id="Password" layoutX="27.0" layoutY="199.0" prefHeight="25.0" prefWidth="257.0" />
       <Label layoutX="28.0" layoutY="127.0" text="Логин" />
       <Label layoutX="28.0" layoutY="182.0" text="Пароль" />
       <TextArea fx:id="Other" layoutX="27.0" layoutY="265.0" prefHeight="142.0" prefWidth="286.0" />
       <Label layoutX="27.0" layoutY="248.0" text="Дополнительно" />
+      <CheckBox fx:id="LookPass" layoutX="292.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#CheckingPass" />
    </children>
 </AnchorPane>

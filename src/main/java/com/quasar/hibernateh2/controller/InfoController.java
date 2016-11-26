@@ -1,6 +1,7 @@
 package com.quasar.hibernateh2.controller;
 
 import com.quasar.hibernateh2.dao.Factory;
+import com.quasar.hibernateh2.dao.entity.Association;
 import com.quasar.hibernateh2.dao.entity.User;
 import java.net.URL;
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 //import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -24,36 +26,45 @@ public class InfoController extends AbstractController implements Initializable 
     @FXML
     TextField NameResource;
     @FXML
+    TextField UrlResource;
+    @FXML
     TextField Login;
     @FXML
-    PasswordField Password;
+    PasswordField Password;  
     @FXML
-    TextField passwordDB;
-    @FXML
-    TextField UrlResource;
+    CheckBox LookPass;
     @FXML
     TextArea Other;
     @FXML
     Button userButton;
 
-    User user = new User();
+    Association association;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            user = Factory.getInstance().getUserDAO().getUserByTempId(2L);
+            association=Factory.getInstance().getAssociationDAO().getAssociationById(289L);
         } catch (SQLException ex) {
             Logger.getLogger(InfoController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Login.setText(user.getLoginUser());
-        Password.setText(user.getPassUser());
+        NameResource.setText(association.getRecourse().getNameRes());
+        UrlResource.setText(association.getRecourse().getUrlRes());
+        
+        Login.setText(association.getAccount().getLoginAccount());
+        Password.setText(association.getAccount().getPassAccount());
+        
+        Other.setText(association.getAbout());
+        
     }
 
+    public void CheckingPass(){
+    if (LookPass.isSelected()){
+        /*Снятие маски с текста в поле*/
+    }
+    }
     public void updateUser() throws SQLException {
-        user.setLoginUser(Login.getText().trim());
-        user.setPassUser(Password.getText().trim());
-        Factory.getInstance().getUserDAO().updateUser(user);
+        
 //        Alert alert = new Alert(Alert.AlertType.INFORMATION);
 //        alert.setTitle("Оповещенпие");
 //        alert.setHeaderText(null);
