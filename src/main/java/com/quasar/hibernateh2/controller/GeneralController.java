@@ -1,7 +1,5 @@
 package com.quasar.hibernateh2.controller;
 
-import com.quasar.hibernateh2.app.MainApp;
-import com.quasar.hibernateh2.controller.LoginController;
 import com.quasar.hibernateh2.dao.Factory;
 import com.quasar.hibernateh2.dao.entity.Association;
 import com.quasar.hibernateh2.dao.entity.ProgResource;
@@ -15,7 +13,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,25 +76,25 @@ public class GeneralController extends AbstractController implements Initializab
     List<Association> listAssociations = null;
     List<ProgResource> listResources = null;
     public Association association;
-    
-    /*Вот это место бага*/
-    User user = application.getUserOut();
+
     /*Говорит NullPointerException*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {                                                                           /*Вот здесь*/
-            listAssociations =Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(user);
-           
+            User user = getApp().getUser();
+            System.out.println("user.getNameDB() = " + user.getLoginUser());
+            listAssociations = Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(user);
+
             //Вот так работает
             /*listAssociations =Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(
-                    Factory.getInstance().getUserDAO().getUserById(790L));*/
-           
+             Factory.getInstance().getUserDAO().getUserById(790L));*/
             ListView.setItems(FXCollections.observableArrayList(listAssociations));
         } catch (SQLException ex) {
             Logger.getLogger(GeneralController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void ListClicked()throws SQLException, IOException{
+
+    public void ListClicked() throws SQLException, IOException {
         association = ListView.getFocusModel().getFocusedItem();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -124,7 +121,7 @@ public class GeneralController extends AbstractController implements Initializab
 
         stage.show();
         /*listResources.add(resource);
-        ListView.setItems(FXCollections.observableArrayList(listResources));*/
+         ListView.setItems(FXCollections.observableArrayList(listResources));*/
     }
 
 }

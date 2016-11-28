@@ -9,9 +9,13 @@ import javafx.scene.layout.AnchorPane;
  */
 public abstract class AbstractController extends AnchorPane {
 
-    protected MainApp application;
+    protected static MainApp application;
 
     public void setApp(MainApp application) {
-        this.application = application;
+        AbstractController.application = application;
+    }
+    
+    public MainApp getApp() {
+        return application;
     }
 }

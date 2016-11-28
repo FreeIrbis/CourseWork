@@ -98,8 +98,7 @@ public class HibernateUtil {
     }
 
     private static void initDb() {
-        try {
-                      
+        try {       
             Factory.getInstance().getUserDAO().addUser(new User(1L, "demo", "demo"));
             Factory.getInstance().getUserDAO().addUser(new User(2L, "one", "one"));
         } catch (SQLException ex) {

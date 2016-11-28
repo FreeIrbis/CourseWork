@@ -87,14 +87,14 @@ public class UserDAOImpl implements UserDAO {
     }
     
     @Override
-    public User getUserBySearch(String Login, String Pass) throws SQLException {
+    public User getUserBySearch(String login, String pass) throws SQLException {
         Session session = null;
         User user = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             user = (User) session.createCriteria(User.class)
-                    .add(Restrictions.eq("loginUser", Login))
-                    .add(Restrictions.eq("passUser", Pass))
+                    .add(Restrictions.eq("loginUser", login))
+                    .add(Restrictions.eq("passUser", pass))
                     .list().get(0);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
@@ -103,6 +103,7 @@ public class UserDAOImpl implements UserDAO {
                 session.close();
             }
         }
+        System.out.println("getUserBySearch user.getNameDB() = " + user.getLoginUser());
         return user;
     }
 

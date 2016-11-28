@@ -39,6 +39,9 @@ public class MainApp extends Application {
     private static final String TITLE = "PassLoger";
     private Stage stage;
 
+    private User user;
+    private Authenticator auth = new Authenticator();
+
     /**
      * @param args the command line arguments
      */
@@ -89,7 +92,7 @@ public class MainApp extends Application {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void gotoSettings() {
         try {
             int xLogin = 600;
@@ -139,31 +142,37 @@ public class MainApp extends Application {
         stage.sizeToScene();
         double x = lx / 2 - width / 2;
         double y = ly / 2 - height / 2;
-        
+
         stage.setX(x);
         stage.setY(y);
-        
+
         return (Initializable) loader.getController();
     }
-    User user = new User();
-    Authenticator Aut = new Authenticator();
-    public User getUserOut(){
-    return user;}
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }   
+    
     public boolean userLogging(String userId, String password) {
-        
-        if (Aut.validate(userId, password)) {
-            user = Aut.getUser();
+        User tempUser = auth.validate(userId, password);
+        System.out.println("userLogging user.getNameDB() = " + tempUser.getLoginUser());
+        if (tempUser != null) {
+            setUser(tempUser);
             gotoGeneral();
             return true;
         } else {
             return false;
         }
     }
-    
-     public void openSettings(ActionEvent e) {
+
+    public void openSettings(ActionEvent e) {
         gotoSettings();
     }
-     
+
     public Stage getStage() {
         return stage;
     }
