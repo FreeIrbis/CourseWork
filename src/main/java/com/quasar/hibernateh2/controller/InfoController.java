@@ -3,6 +3,8 @@ package com.quasar.hibernateh2.controller;
 import com.quasar.hibernateh2.dao.Factory;
 import com.quasar.hibernateh2.dao.entity.Association;
 import com.quasar.hibernateh2.dao.entity.User;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -58,10 +60,30 @@ public class InfoController extends AbstractController implements Initializable 
         
     }
 
+    public static void copyToSystemClipboard(String str) {
+    StringSelection ss = new StringSelection(str);
+    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+}
+    
     public void CheckingPass(){
     if (LookPass.isSelected()){
         /*Снятие маски с текста в поле*/
     }
+    }
+    
+    public void CopyURL(){
+       copyToSystemClipboard(association.getRecourse().getUrlRes());
+       System.out.println("11111");
+    }
+    
+    public void CopyLogin(){
+       copyToSystemClipboard(association.getAccount().getLoginAccount());
+       System.out.println("222222");
+    }
+    
+    public void CopyPass(){
+       copyToSystemClipboard(association.getAccount().getPassAccount());
+       System.out.println("333333");
     }
     public void updateUser() throws SQLException {
         

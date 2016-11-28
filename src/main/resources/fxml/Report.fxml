@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="328.0" prefWidth="488.0" styleClass="window" stylesheets="@../../../../target/classes/styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.ReportController">
+<AnchorPane id="AnchorPane" prefHeight="328.0" prefWidth="258.0" styleClass="window" stylesheets="@../../../../target/classes/styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.ReportController">
    <children>
-      <ComboBox fx:id="comboReport" layoutX="40.0" layoutY="70.0" prefHeight="25.0" prefWidth="184.0" promptText="выберите отчёт" />
-      <Button fx:id="btnGetReport" layoutX="274.0" layoutY="70.0" mnemonicParsing="false" onAction="#getReport" text="Получить" />
-      <Label layoutX="400.0" layoutY="6.0" text="Меню отчётов" />
+      <TextField fx:id="loginReg" layoutX="40.0" layoutY="61.0" prefHeight="36.0" prefWidth="179.0" promptText="Введите логин">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="passReg" layoutX="40.0" layoutY="134.0" prefHeight="36.0" prefWidth="179.0" promptText="Введите пароль">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnSubmitReg" layoutX="68.0" layoutY="257.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="122.0" text="Зарегестрировать" />
+      <TextField fx:id="passRegSub" layoutX="41.0" layoutY="190.0" prefHeight="36.0" prefWidth="179.0" promptText="Введите пароль ещё раз">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="41.0" layoutY="44.0" text="Логин для регистрации" />
+      <Label layoutX="40.0" layoutY="117.0" text="Пароль для регистрации" />
+      <Label layoutX="41.0" layoutY="174.0" text="Повторите пароль" />
+      <Label layoutX="73.0" layoutY="7.0" text="РЕГИСТРАЦИЯ" textAlignment="CENTER" textFill="#4a4848" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

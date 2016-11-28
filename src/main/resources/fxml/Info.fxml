@@ -23,21 +23,9 @@
       <CheckBox fx:id="LookPass" layoutX="292.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#CheckingPass" />
       <MenuBar layoutY="-2.0" prefHeight="25.0" prefWidth="344.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Copy URL">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Copy Login">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Copy Password">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
+          <Menu mnemonicParsing="false" onAction="#CopyURL" text="Copy URL" />
+          <Menu mnemonicParsing="false" onAction="#CopyLogin" text="Copy Login" />
+          <Menu mnemonicParsing="false" onAction="#CopyPass" text="Copy Password" />
         </menus>
       </MenuBar>
    </children>
