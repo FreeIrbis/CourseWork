@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="settings" prefHeight="458.0" prefWidth="344.0" styleClass="window" stylesheets="@../../../../target/classes/styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.InfoController">
+<AnchorPane fx:id="settings" prefHeight="475.0" prefWidth="344.0" styleClass="window" stylesheets="@../../../../target/classes/styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.InfoController">
    <children>
       <Label layoutX="28.0" layoutY="78.0" text="URL" />
       <Label layoutX="28.0" layoutY="25.0" text="Название" />
@@ -21,5 +21,24 @@
       <TextArea fx:id="Other" layoutX="27.0" layoutY="265.0" prefHeight="142.0" prefWidth="286.0" />
       <Label layoutX="27.0" layoutY="248.0" text="Дополнительно" />
       <CheckBox fx:id="LookPass" layoutX="292.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#CheckingPass" />
+      <MenuBar layoutY="-2.0" prefHeight="25.0" prefWidth="344.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Copy URL">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Copy Login">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Copy Password">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </AnchorPane>

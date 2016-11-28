@@ -82,8 +82,8 @@ public class GeneralController extends AbstractController implements Initializab
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            User user = Factory.getInstance().getUserDAO().getUserByTempId(2L);
-            listAssociations =Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(user);
+           // User user = Factory.getInstance().getUserDAO().getUserByTempId(2L);
+            listAssociations =Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(application.user);
             ListView.setItems(FXCollections.observableArrayList(listAssociations));
         } catch (SQLException ex) {
             Logger.getLogger(GeneralController.class.getName()).log(Level.SEVERE, null, ex);

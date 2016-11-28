@@ -175,14 +175,14 @@ public class MainApp extends Application {
         
         return (Initializable) loader.getController();
     }
-    static Authenticator Aut = new Authenticator();
-    
-    public static User getUserOut(){
-    return Aut.user;}
+    public User user;
+    Authenticator Aut = new Authenticator();
+   // public User getUserOut(){
+   // return Aut.user;}
     public boolean userLogging(String userId, String password) {
         
         if (Aut.validate(userId, password)) {
-            // loggedUser = User.of(userId);
+            user = Aut.getUser();
             gotoGeneral();
             return true;
         } else {
