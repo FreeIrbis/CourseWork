@@ -79,11 +79,19 @@ public class GeneralController extends AbstractController implements Initializab
     List<Association> listAssociations = null;
     List<ProgResource> listResources = null;
     public Association association;
+    
+    /*Вот это место бага*/
+    User user = application.getUserOut();
+    /*Говорит NullPointerException*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-           // User user = Factory.getInstance().getUserDAO().getUserByTempId(2L);
-            listAssociations =Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(application.user);
+        try {                                                                           /*Вот здесь*/
+            listAssociations =Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(user);
+           
+            //Вот так работает
+            /*listAssociations =Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(
+                    Factory.getInstance().getUserDAO().getUserById(790L));*/
+           
             ListView.setItems(FXCollections.observableArrayList(listAssociations));
         } catch (SQLException ex) {
             Logger.getLogger(GeneralController.class.getName()).log(Level.SEVERE, null, ex);

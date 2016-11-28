@@ -5,9 +5,8 @@ import com.quasar.hibernateh2.dao.entity.User;
 import java.sql.SQLException;
 
 public class Authenticator {
-    User user;
+    User user= null;
     public boolean validate(String login, String password) {
-        user = null;
         try {
             user = Factory.getInstance().getUserDAO().getUserBySearch(login, password);
            if (user!=null){

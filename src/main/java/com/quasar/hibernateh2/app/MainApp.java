@@ -56,8 +56,6 @@ public class MainApp extends Application {
             // установка иконки
             Image ix = new Image("/icon/lock.png");
             stage.getIcons().add(ix);
-            // stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
-            // stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
             gotoLogin();
             stage.show();
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -144,41 +142,13 @@ public class MainApp extends Application {
         
         stage.setX(x);
         stage.setY(y);
-
-//        double xW = stage.getX();
-//        double yW = stage.getY();
-        
-//        int step = 100;
-       
-//        double xTemp = (x - xW)/step;
-//        double yTemp = (y - yW)/step;
-        
-//        Timer animTimer = new Timer();
-//        animTimer.scheduleAtFixedRate(new TimerTask() {
-//            int i = 0;
-//            @Override
-//            public void run() {
-//                if (i < step) {
-//                    //stage.setWidth(stage.getWidth() + 3);
-//                    //stage.setHeight(stage.getHeight() + 3);        
-//                    stage.setX(stage.getX() + xTemp);
-//                    stage.setY(stage.getY() + yTemp);
-//                    
-//                } else {
-//                    this.cancel();
-//                }
-//                i++;
-//            }
-//        }, 2000, 25);
-
-        
         
         return (Initializable) loader.getController();
     }
-    public User user;
+    User user = new User();
     Authenticator Aut = new Authenticator();
-   // public User getUserOut(){
-   // return Aut.user;}
+    public User getUserOut(){
+    return user;}
     public boolean userLogging(String userId, String password) {
         
         if (Aut.validate(userId, password)) {
