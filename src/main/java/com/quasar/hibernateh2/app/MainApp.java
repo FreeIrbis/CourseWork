@@ -3,12 +3,15 @@ package com.quasar.hibernateh2.app;
 import com.quasar.hibernateh2.controller.GeneralController;
 import com.quasar.hibernateh2.controller.LoginController;
 import com.quasar.hibernateh2.controller.InfoController;
+import com.quasar.hibernateh2.dao.Factory;
 import com.quasar.hibernateh2.dao.entity.Association;
 import com.quasar.hibernateh2.dao.entity.User;
 import com.quasar.hibernateh2.dao.hiber_util.HibernateUtil;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.InputStream;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
@@ -165,6 +168,17 @@ public class MainApp extends Application {
     public void setTempAss(Association tempAss){
         this.tempAss = tempAss;
     }
+    
+    List<Association> listAssociations = null;
+    
+    public void updateListAss() throws SQLException{
+        listAssociations = Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(user);
+    }
+    
+    public List<Association> getListAss(){
+        return listAssociations;
+    }
+    
     
     public boolean userLogging(String userId, String password) {
         User tempUser = auth.validate(userId, password);

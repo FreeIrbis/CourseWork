@@ -45,16 +45,16 @@ public class GeneralController extends AbstractController implements Initializab
 
     @FXML
     MenuBar MenuBar = new MenuBar();
-    List<Association> listAssociations = null;
     List<ProgResource> listResources = null;
     Association association;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try { 
             User user = getApp().getUser();
             System.out.println("user.getNameDB() = " + user.getLoginUser());
-            listAssociations = Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(user);
-            ListView.setItems(FXCollections.observableArrayList(listAssociations));
+            getApp().updateListAss();
+            ListView.setItems(FXCollections.observableArrayList(getApp().getListAss()));
         } catch (SQLException ex) {
             Logger.getLogger(GeneralController.class.getName()).log(Level.SEVERE, null, ex);
         }

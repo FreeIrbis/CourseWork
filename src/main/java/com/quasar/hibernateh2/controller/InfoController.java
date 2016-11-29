@@ -133,6 +133,7 @@ public class InfoController extends AbstractController implements Initializable 
         alert.showAndWait();
     }
         
-
+    getApp().updateListAss();
+    
     }
 }
