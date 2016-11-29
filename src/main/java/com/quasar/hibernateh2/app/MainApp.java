@@ -116,7 +116,7 @@ public class MainApp extends Application {
 
     private void gotoGeneral() {
         try {
-            GeneralController login = (GeneralController) replaceSceneContent("/fxml/General.fxml", 228, 441);
+            GeneralController login = (GeneralController) replaceSceneContent("/fxml/General.fxml", 228, 291);
             login.setApp(this);
             Scene scene = stage.getScene();
             scene.getStylesheets().add("/styles/General.css");

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="281.0" prefWidth="238.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.GeneralController">
+<AnchorPane id="AnchorPane" onDragDetected="#updateList" onDragDone="#updateList" onDragDropped="#updateList" onDragEntered="#updateList" onDragExited="#updateList" onMouseDragEntered="#updateList" onMouseDragExited="#updateList" onMouseDragOver="#updateList" onMouseDragged="#updateList" onMouseMoved="#updateList" prefHeight="291.0" prefWidth="228.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.GeneralController">
     <stylesheets>
         <URL value="@../styles/General.css" />
     </stylesheets>
@@ -30,6 +30,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ListView fx:id="ListView" layoutY="27.0" onMouseClicked="#ListClicked" prefHeight="264.0" prefWidth="238.0" />
+      <ListView fx:id="ListView" layoutY="27.0" onDragDetected="#updateList" onDragDone="#updateList" onDragDropped="#updateList" onDragEntered="#updateList" onDragExited="#updateList" onDragOver="#updateList" onMouseClicked="#ListClicked" onMouseDragEntered="#updateList" onMouseDragged="#updateList" prefHeight="264.0" prefWidth="238.0" />
    </children>
  </AnchorPane>

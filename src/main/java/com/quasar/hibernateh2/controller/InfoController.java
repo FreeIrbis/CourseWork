@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -134,6 +135,5 @@ public class InfoController extends AbstractController implements Initializable 
     }
         
     getApp().updateListAss();
-    
     }
 }

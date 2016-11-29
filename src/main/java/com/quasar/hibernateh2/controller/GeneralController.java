@@ -41,7 +41,7 @@ public class GeneralController extends AbstractController implements Initializab
 
     /*Описание графических элементов*/
     @FXML
-    ListView<Association> ListView = new <Association>ListView();
+    public ListView<Association> ListView = new <Association>ListView();
 
     @FXML
     MenuBar MenuBar = new MenuBar();
@@ -61,7 +61,10 @@ public class GeneralController extends AbstractController implements Initializab
     }
 
     public void ListClicked() throws SQLException, IOException {
+        if(ListView.getFocusModel().getFocusedItem()!=null){
+          
         association = ListView.getFocusModel().getFocusedItem();
+        }else{
         getApp().setTempAss(association);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -85,8 +88,9 @@ public class GeneralController extends AbstractController implements Initializab
 
         stage.setX(x);
         stage.setY(y);
-
+        ListView.setFocusModel(null);
         stage.show();
+        }
     }
 
     public void addAssociation() throws IOException{
@@ -114,5 +118,10 @@ public class GeneralController extends AbstractController implements Initializab
         stage.setY(y);
 
         stage.show();
+    }
+    
+    public void updateList() throws SQLException{
+            getApp().updateListAss();
+            ListView.setItems(FXCollections.observableArrayList(getApp().getListAss()));
     }
 }
