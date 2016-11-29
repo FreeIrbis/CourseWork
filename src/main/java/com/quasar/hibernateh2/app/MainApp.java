@@ -3,6 +3,7 @@ package com.quasar.hibernateh2.app;
 import com.quasar.hibernateh2.controller.GeneralController;
 import com.quasar.hibernateh2.controller.LoginController;
 import com.quasar.hibernateh2.controller.InfoController;
+import com.quasar.hibernateh2.dao.entity.Association;
 import com.quasar.hibernateh2.dao.entity.User;
 import com.quasar.hibernateh2.dao.hiber_util.HibernateUtil;
 import java.awt.Dimension;
@@ -156,6 +157,14 @@ public class MainApp extends Application {
     public void setUser(User user) {
         this.user = user;
     }   
+    
+    Association tempAss = null;
+    public Association getTempAss(){
+    return tempAss;}
+    
+    public void setTempAss(Association tempAss){
+        this.tempAss = tempAss;
+    }
     
     public boolean userLogging(String userId, String password) {
         User tempUser = auth.validate(userId, password);

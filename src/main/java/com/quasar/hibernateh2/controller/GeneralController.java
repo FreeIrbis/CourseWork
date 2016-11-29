@@ -47,8 +47,7 @@ public class GeneralController extends AbstractController implements Initializab
     MenuBar MenuBar = new MenuBar();
     List<Association> listAssociations = null;
     List<ProgResource> listResources = null;
-    public Association association;
-
+    Association association;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try { 
@@ -63,6 +62,7 @@ public class GeneralController extends AbstractController implements Initializab
 
     public void ListClicked() throws SQLException, IOException {
         association = ListView.getFocusModel().getFocusedItem();
+        getApp().setTempAss(association);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -89,4 +89,30 @@ public class GeneralController extends AbstractController implements Initializab
         stage.show();
     }
 
+    public void addAssociation() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Информация");
+        stage.setScene(new Scene(root1));
+        Scene scene = stage.getScene();
+        scene.getStylesheets().add("/styles/Login.css");
+        stage.setResizable(false);
+        // установка иконки
+        Image ix = new Image("/icon/lock.png");
+        stage.getIcons().add(ix);
+        stage.centerOnScreen();
+
+        lx = screenSize.width;
+        ly = screenSize.height;
+
+        double x = lx / 2 - 600 / 2;
+        double y = ly / 2 - 400 / 2;
+
+        stage.setX(x);
+        stage.setY(y);
+
+        stage.show();
+    }
 }
