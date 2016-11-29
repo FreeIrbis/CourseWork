@@ -106,5 +106,24 @@ public class UserDAOImpl implements UserDAO {
         System.out.println("getUserBySearch user.getNameDB() = " + user.getLoginUser());
         return user;
     }
+@Override
+    public boolean checkUserBySearch(String login, String pass) throws SQLException {
+        Session session = null;
 
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            if(session.createCriteria(User.class)
+                    .add(Restrictions.eq("loginUser", login))
+                    .add(Restrictions.eq("passUser", pass))
+                    .list().size()>0){return false;}else{return true;}
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return false;
+   
+    }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="328.0" prefWidth="258.0" styleClass="window" stylesheets="@../../../../target/classes/styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.RegistrationController">
+   <children>
+      <TextField fx:id="loginReg" layoutX="40.0" layoutY="43.0" prefHeight="36.0" prefWidth="179.0" promptText="Введите логин">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="passReg" layoutX="40.0" layoutY="104.0" prefHeight="36.0" prefWidth="179.0" promptText="Введите пароль">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="btnSubmitReg" layoutX="68.0" layoutY="276.0" mnemonicParsing="false" onAction="#SubmitReg" prefHeight="36.0" prefWidth="122.0" text="Зарегестрировать" />
+      <PasswordField fx:id="passRegSub" layoutX="41.0" layoutY="192.0" prefHeight="36.0" prefWidth="179.0" promptText="Введите пароль ещё раз">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="41.0" layoutY="26.0" text="Логин для регистрации" />
+      <Label layoutX="40.0" layoutY="87.0" text="Пароль для регистрации" />
+      <Label layoutX="41.0" layoutY="176.0" text="Повторите пароль" />
+      <Label fx:id="errorMessage" layoutX="41.0" layoutY="235.0" />
+   </children>
+</AnchorPane>

@@ -39,34 +39,6 @@ public class GeneralController extends AbstractController implements Initializab
     private static int lx;
     private static int ly;
 
-    public void openSet(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Settings.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        //stage.initStyle(StageStyle.UNDECORATED);
-        stage.setTitle("Настройки");
-        stage.setScene(new Scene(root1));
-        Scene scene = stage.getScene();
-        scene.getStylesheets().add("/styles/Login.css");
-        stage.setResizable(false);
-        // установка иконки
-        Image ix = new Image("/icon/lock.png");
-        stage.getIcons().add(ix);
-        stage.centerOnScreen();
-
-        lx = screenSize.width;
-        ly = screenSize.height;
-
-        double x = lx / 2 - 600 / 2;
-        double y = ly / 2 - 400 / 2;
-
-        stage.setX(x);
-        stage.setY(y);
-
-        stage.show();
-    }
-
     /*Описание графических элементов*/
     @FXML
     ListView<Association> ListView = new <Association>ListView();
@@ -77,17 +49,12 @@ public class GeneralController extends AbstractController implements Initializab
     List<ProgResource> listResources = null;
     public Association association;
 
-    /*Говорит NullPointerException*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {                                                                           /*Вот здесь*/
+        try { 
             User user = getApp().getUser();
             System.out.println("user.getNameDB() = " + user.getLoginUser());
             listAssociations = Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(user);
-
-            //Вот так работает
-            /*listAssociations =Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(
-             Factory.getInstance().getUserDAO().getUserById(790L));*/
             ListView.setItems(FXCollections.observableArrayList(listAssociations));
         } catch (SQLException ex) {
             Logger.getLogger(GeneralController.class.getName()).log(Level.SEVERE, null, ex);
@@ -120,8 +87,6 @@ public class GeneralController extends AbstractController implements Initializab
         stage.setY(y);
 
         stage.show();
-        /*listResources.add(resource);
-         ListView.setItems(FXCollections.observableArrayList(listResources));*/
     }
 
 }

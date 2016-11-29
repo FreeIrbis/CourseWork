@@ -32,7 +32,7 @@
                 <Label id="label2" fx:id="errorMessage" />
             </children>
         </HBox>
-      <Button fx:id="loginButton1" layoutX="69.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="38.0" prefWidth="172.0" text="Зарегистрироваться">
+      <Button fx:id="regBtn" layoutX="69.0" layoutY="344.0" mnemonicParsing="false" onAction="#openReg" prefHeight="38.0" prefWidth="172.0" text="Зарегистрироваться">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

@@ -32,7 +32,7 @@ public class InfoController extends AbstractController implements Initializable 
     @FXML
     TextField Login;
     @FXML
-    PasswordField Password;  
+    TextField Password;  
     @FXML
     CheckBox LookPass;
     @FXML
@@ -46,7 +46,8 @@ public class InfoController extends AbstractController implements Initializable 
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            association=Factory.getInstance().getAssociationDAO().getAssociationById(289L);
+             User user = getApp().getUser();
+            association=Factory.getInstance().getAssociationDAO().getAssociationByUser(user);
         } catch (SQLException ex) {
             Logger.getLogger(InfoController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -57,6 +58,7 @@ public class InfoController extends AbstractController implements Initializable 
         Password.setText(association.getAccount().getPassAccount());
         
         Other.setText(association.getAbout());
+        Password.setStyle("-fx-echo-char:*;");
         
     }
 
@@ -68,6 +70,9 @@ public class InfoController extends AbstractController implements Initializable 
     public void CheckingPass(){
     if (LookPass.isSelected()){
         /*Снятие маски с текста в поле*/
+        Password.setStyle("-fx-echo-char:;");  
+    }else{
+        Password.setStyle("-fx-echo-char:*;");
     }
     }
     

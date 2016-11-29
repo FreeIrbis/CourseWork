@@ -6,12 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="429.0" prefWidth="424.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.GeneralController">
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="228.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quasar.hibernateh2.controller.GeneralController">
     <stylesheets>
         <URL value="@../styles/General.css" />
     </stylesheets>
    <children>
-      <MenuBar layoutY="-1.0" prefHeight="28.0" prefWidth="424.0">
+      <MenuBar layoutY="-1.0" prefHeight="28.0" prefWidth="238.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -30,6 +30,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ListView fx:id="ListView" layoutY="27.0" onMouseClicked="#ListClicked" prefHeight="414.0" prefWidth="424.0" />
+      <ListView fx:id="ListView" layoutY="27.0" onMouseClicked="#ListClicked" prefHeight="414.0" prefWidth="238.0" />
    </children>
  </AnchorPane>

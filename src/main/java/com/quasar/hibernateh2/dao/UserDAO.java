@@ -24,4 +24,6 @@ public interface UserDAO {
     
     public User getUserBySearch(String Login, String Pass) throws SQLException;
     
+    public boolean checkUserBySearch(String login, String pass) throws SQLException;
+    
 }

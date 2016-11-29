@@ -93,11 +93,11 @@ public class MainApp extends Application {
         }
     }
 
-    private void gotoSettings() {
+    private void gotoRegisters() {
         try {
-            int xLogin = 600;
-            int yLogin = 420;
-            InfoController login = (InfoController) replaceSceneContent("/fxml/Settings.fxml", xLogin, yLogin);
+            int xLogin = 328;
+            int yLogin = 258;
+            InfoController login = (InfoController) replaceSceneContent("/fxml/Register.fxml", xLogin, yLogin);
             login.setApp(this);
             Scene scene = stage.getScene();
             scene.getStylesheets().add("/styles/Settings.css");
@@ -112,7 +112,7 @@ public class MainApp extends Application {
 
     private void gotoGeneral() {
         try {
-            GeneralController login = (GeneralController) replaceSceneContent("/fxml/General.fxml", 424, 429);
+            GeneralController login = (GeneralController) replaceSceneContent("/fxml/General.fxml", 228, 441);
             login.setApp(this);
             Scene scene = stage.getScene();
             scene.getStylesheets().add("/styles/General.css");
@@ -169,8 +169,8 @@ public class MainApp extends Application {
         }
     }
 
-    public void openSettings(ActionEvent e) {
-        gotoSettings();
+    public void openRegisters() {
+        gotoRegisters();
     }
 
     public Stage getStage() {
