@@ -58,6 +58,7 @@ public class RegistrationController extends AbstractController implements Initia
                 errorMessage.setText("Password is incorrect");
                 passRegSub.setStyle("fx-border: 1px solid red;");
                 passReg.setStyle("fx-border: 1px solid red;");
+                errorMessage.setText("Register is successful");
             } else {
                 errorMessage.setText("User already exists");
             }

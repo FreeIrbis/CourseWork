@@ -194,6 +194,10 @@ public class GeneralController extends AbstractController implements Initializab
         }
     }
 
+    public void Open(){
+    
+    }
+    
     public void updateList() throws SQLException {
         getApp().updateListAss();
         ListView.setItems(FXCollections.observableArrayList(getApp().getListAss()));

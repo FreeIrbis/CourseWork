@@ -33,9 +33,10 @@
       </MenuBar>
       <ListView fx:id="ListView" layoutY="27.0" onDragDetected="#updateList" onDragDone="#updateList" onDragDropped="#updateList" onDragEntered="#updateList" onDragExited="#updateList" onDragOver="#updateList" onMouseClicked="#ListClicked" onMouseDragEntered="#updateList" onMouseDragged="#updateList" prefHeight="264.0" prefWidth="238.0">
          <contextMenu>
-            <ContextMenu onAction="#DeleteAss">
+            <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                  <MenuItem mnemonicParsing="false" onAction="#Open" text="Open" />
+                <MenuItem mnemonicParsing="false" text="Delete" />
               </items>
             </ContextMenu>
          </contextMenu></ListView>
