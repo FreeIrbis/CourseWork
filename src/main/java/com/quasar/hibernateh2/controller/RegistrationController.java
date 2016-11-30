@@ -7,6 +7,8 @@ package com.quasar.hibernateh2.controller;
 
 import com.quasar.hibernateh2.dao.Factory;
 import com.quasar.hibernateh2.dao.entity.User;
+import java.awt.Color;
+import java.awt.Paint;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,7 +26,7 @@ import javafx.scene.control.TextField;
  * @author Ghost
  */
 public class RegistrationController extends AbstractController implements Initializable {
-    
+
     @FXML
     TextField loginReg;
     @FXML
@@ -35,26 +37,33 @@ public class RegistrationController extends AbstractController implements Initia
     PasswordField passRegSub;
     @FXML
     Label errorMessage;
-    User user=new User();
+    User user = new User();
     boolean b;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-       }
-    
-    public void SubmitReg(ActionEvent event) throws SQLException, IOException{
-       b=Factory.getInstance().getUserDAO().checkUserBySearch(loginReg.getText(), passReg.getText());
-       System.out.println(b);
-       if(b==true && (passRegSub.getText().equals(passReg.getText()))){
-           user.setLoginUser(loginReg.getText().trim());
-           user.setPassUser(passReg.getText().trim());
-           Factory.getInstance().getUserDAO().addUser(user);
-           
-       }else{
-           errorMessage.setText("Password is incorrect/User already exists ");
-       }
-       b=false;
-       user.setLoginUser("");
-       user.setPassUser("");
+
+    }
+
+    public void SubmitReg(ActionEvent event) throws SQLException, IOException {
+        b = Factory.getInstance().getUserDAO().checkUserBySearch(loginReg.getText(), passReg.getText());
+        System.out.println(b);
+        if (b == true && (passRegSub.getText().equals(passReg.getText()))) {
+            user.setLoginUser(loginReg.getText().trim());
+            user.setPassUser(passReg.getText().trim());
+            Factory.getInstance().getUserDAO().addUser(user);
+
+        } else {
+            if (!passRegSub.getText().equals(passReg.getText())) {
+                errorMessage.setText("Password is incorrect");
+                passRegSub.setStyle("fx-border: 1px solid red;");
+                passReg.setStyle("fx-border: 1px solid red;");
+            } else {
+                errorMessage.setText("User already exists");
+            }
+        }
+        b = false;
+        user.setLoginUser("");
+        user.setPassUser("");
     }
 }

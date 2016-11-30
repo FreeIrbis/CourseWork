@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  * @author Irbis
  */
 public class LoginController extends AbstractController implements Initializable {
-     
+
     private static final Toolkit kit = Toolkit.getDefaultToolkit();
     private static final Dimension screenSize = kit.getScreenSize();
 
@@ -41,16 +41,17 @@ public class LoginController extends AbstractController implements Initializable
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
-        if (application == null){
+        if (application == null) {
             errorMessage.setText("Hello " + login.getText());
         } else {
-            if (!application.userLogging(login.getText(), password.getText())){
+            if (!application.userLogging(login.getText(), password.getText())) {
                 errorMessage.setText("Username/Password is incorrect");
             }
         }
     }
-    public void openReg() throws IOException{
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Register.fxml"));
+
+    public void openReg() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Register.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -75,8 +76,9 @@ public class LoginController extends AbstractController implements Initializable
 
         stage.show();
     }
-   
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
     }
 }

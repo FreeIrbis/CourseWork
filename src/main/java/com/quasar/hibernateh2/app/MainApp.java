@@ -159,27 +159,28 @@ public class MainApp extends Application {
 
     public void setUser(User user) {
         this.user = user;
-    }   
-    
+    }
+
     Association tempAss = null;
-    public Association getTempAss(){
-    return tempAss;}
-    
-    public void setTempAss(Association tempAss){
+
+    public Association getTempAss() {
+        return tempAss;
+    }
+
+    public void setTempAss(Association tempAss) {
         this.tempAss = tempAss;
     }
-    
+
     List<Association> listAssociations = null;
-    
-    public void updateListAss() throws SQLException{
+
+    public void updateListAss() throws SQLException {
         listAssociations = Factory.getInstance().getAssociationDAO().getAllAssociationsByUser(user);
     }
-    
-    public List<Association> getListAss(){
+
+    public List<Association> getListAss() {
         return listAssociations;
     }
-    
-    
+
     public boolean userLogging(String userId, String password) {
         User tempUser = auth.validate(userId, password);
         System.out.println("userLogging user.getNameDB() = " + tempUser.getLoginUser());

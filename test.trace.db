@@ -440,3 +440,48 @@ The object is already closed [90007-191]
 2016-11-29 09:11:03 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
 The object is already closed [90007-191]
+2016-11-29 10:00:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-29 10:00:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-29 10:00:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-29 10:53:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-29 10:53:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-29 10:53:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-29 10:53:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-29 10:53:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-29 10:53:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-30 07:21:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-30 07:21:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-30 07:21:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-30 07:21:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-30 07:21:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
+2016-11-30 07:21:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: ÐžÐ±ÑŠÐµÐºÑ‚ ÑƒÐ¶Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚
+The object is already closed [90007-191]
